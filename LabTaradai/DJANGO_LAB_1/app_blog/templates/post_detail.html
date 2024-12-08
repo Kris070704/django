@@ -1,0 +1,55 @@
+<!-- templates/your_app/post_detail.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="post-detail">
+        <h1 class="page-title text-center">{{ post.title }}</h1>
+
+        <!-- Відображення фотографії, якщо вона є -->
+        {% if post.image %}
+        <div class="text-center mb-4">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
+        </div>
+        {% endif %}
+
+        <!-- Контент посту -->
+        <p class="post-content">{{ post.content }}</p>
+
+        <!-- Коментарі -->
+        <div class="comments-section mt-5">
+            <h2>Коментарі:</h2>
+            <ul class="list-group">
+                {% for comment in post.comments.all %}
+                <li class="list-group-item">
+                    <p><strong>{{ comment.author }}:</strong></p>
+                    <p>{{ comment.text }}</p>
+                    <p><em>Дата створення: {{ comment.created_date }}</em></p>
+                </li>
+                {% empty %}
+                <div class="alert alert-warning" role="alert">
+                    На жаль, немає коментарів.
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Теги -->
+        <div class="tags-section mt-5">
+            <h2>Теги:</h2>
+            <ul class="list-inline">
+                {% for tag in post.tags.all %}
+                <li class="list-inline-item">
+                    <span class="badge badge-primary">{{ tag.name }}</span>
+                </li>
+                {% empty %}
+                <div class="alert alert-secondary" role="alert">
+                    Немає тегів.
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

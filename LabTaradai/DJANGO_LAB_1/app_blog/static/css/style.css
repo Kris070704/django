@@ -1,0 +1,107 @@
+/* Загальний контейнер */
+.container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Заголовок сторінки */
+.page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Фотографія посту */
+img.img-fluid {
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #007bff;
+}
+
+/* Контент посту */
+.post-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #495057;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+/* Коментарі */
+.comments-section h2 {
+    border-bottom: 2px solid #17a2b8;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    color: #17a2b8;
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.list-group-item p {
+    margin: 5px 0;
+}
+
+.alert-warning {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Теги */
+.tags-section h2 {
+    border-bottom: 2px solid #6c757d;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    color: #6c757d;
+}
+
+.badge-primary {
+    background-color: #007bff;
+    font-size: 1rem;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.alert-secondary {
+    background-color: #f1f3f5;
+    color: #6c757d;
+    border: 1px dashed #ced4da;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Додаткові стилі для адаптивності */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+
+    .list-group-item {
+        padding: 10px;
+    }
+
+    .badge-primary {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}

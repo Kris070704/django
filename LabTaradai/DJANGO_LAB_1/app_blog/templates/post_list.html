@@ -1,0 +1,45 @@
+<!-- templates/your_app/post_list.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Список постів</h1>
+
+    {% if posts %}
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <!-- Відображення зображення -->
+                {% if post.image %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                {% else %}
+                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                    <span class="text-muted">Без зображення</span>
+                </div>
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'post_detail' post.id %}" class="text-decoration-none text-dark">
+                            {{ post.title }}
+                        </a>
+                    </h5>
+                    <p class="card-text text-truncate">{{ post.content|slice:":150" }}...</p>
+                </div>
+
+                <div class="card-footer bg-white border-top-0">
+                    <a href="{% url 'post_detail' post.id %}" class="btn btn-primary btn-sm">Читати більше</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center">
+        <strong>На жаль, постів поки немає.</strong>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
